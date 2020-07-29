@@ -8983,7 +8983,7 @@ h1, h2, h3, h4, h5,
       .project .overlay {
         opacity: .2; } }
   .project .text {
-    max-width: 80%;
+    /*max-width: 80%;*/
     z-index: 1;
     opacity: 0;
     -moz-transition: all 0.3s ease;

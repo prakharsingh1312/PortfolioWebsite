@@ -38,11 +38,18 @@ class Project(db.Model):
 	image=db.Column('image', db.String(1000))
 	desc=db.Column('description',db.String(1000))
 	link=db.Column('link',db.String(100))
+	size=db.Column('size',db.Integer)
 
 db.create_all()
-
+#db.drop_all()
 @app.route("/")
 def hello():
-    return render_template('index.html')
+	experience=Event.query.filter_by(type='Experience')
+	education=Event.query.filter_by(type='Education')
+	position=Event.query.filter_by(type='Position Of Responsibility')
+	achievement=Achievement.query.all()
+	skill=Skills.query.all()
+	project=Project.query.all()
+	return render_template('index.html',experiences=experience,positions=position,achievements=achievement,skills=skill,projects=project,educations=education)
 if __name__ == "__main__":
     app.run()

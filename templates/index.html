@@ -139,49 +139,37 @@
           </div>
         </div>
     		<div class="row">
-    			<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-    					<span class="date">Apr 2020 - Present</span>
-    					<h2>Joint Secretary</h2>
-    					<span class="position">Creative Computing Society</span>
-    					<p class="mt-4">• Co-Leading the oldest and the most sought after technical society of TIET with a team of 200+ students.
-</p>
-    				</div>
-    				
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">Apr 2019 - Apr 2020</span>
-    					<h2>Head Of Designing | Member Of Core Team</h2>
-    					<span class="position"></span>
-    					<p class="mt-4">• Managing and supervising a team to design posters , event goodies and social media handles for the society.
-</p>
-    				</div>
-    				
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">Apr 2016 - Apr 2018 </span>
-    					<h2>President Infotech Club</h2>
-    					<span class="position">Cambridge School Noida</span>
-    					<p class="mt-4">• Organizing &amp; Managing the annual TechFest for the school.
-										• Promoting a technical culture &amp; helping students in various technological fields.
-</p>
-    				</div>
-    			</div>
 
     			<div class="col-md-6">
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">Aug 2019 – Dec 2019</span>
-    					<h2>Student Developer</h2>
-    					<span class="position">Nava Nalanda Central Library, TIET</span>
-    					<p class="mt-4">• Developed a full fledged slot and room booking system.<br>
-										• MySQL database. Web app includes functionalities like group management, time/date based booking, admin panel, booking status, check in-out, mail notifications, etc.
+    				{% for position in positions %}
+					<div class="resume-wrap ftco-animate">
+    					<span class="date">{{position.date}}</span>
+    					<h2>{{position.post}}</h2>
+    					<span class="position">{{position.employer}}</span>
+    					<p class="mt-4">{% set desc=position.desc.split('#') %}
+    						{% for d in desc %}
+    							{{d}}<br>
+    				{% endfor %}
 </p>
+
     				</div>
-    				<div class="resume-wrap ftco-animate">
-    					<span class="date">Mar 2019 – May 2019 </span>
-    					<h2>Student Developer</h2>
-    					<span class="position">CSED Department, TIET</span>
-    					<p class="mt-4">• Developed a web app to manage registrations for Open Day for various departments on campus.<br>
-										• Developed a web page, displaying stats about students &amp; faculty with various graphs/charts with filters.</p>
+    				{% endfor %}
+    				    			</div>
+
+    			<div class="col-md-6">
+    				{% for experience in experiences %}
+					<div class="resume-wrap ftco-animate">
+    					<span class="date">{{experience.date}}</span>
+    					<h2>{{experience.post}}</h2>
+    					<span class="position">{{experience.employer}}</span>
+    					<p class="mt-4">{% set desc=experience.desc.split('#') %}
+    						{% for d in desc %}
+    							{{d}}<br>
+    				{% endfor %}
+</p>
+
     				</div>
+    				{% endfor %}
     			</div>
     		</div>
     		<div class="row justify-content-center mt-5">
@@ -239,67 +227,36 @@
 					</div>
 				
 -->
-				    			<div class="col-md-6">
+
+					{% for education in educations %}
+									    			<div class="col-md-6">
 					<div class="resume-wrap ftco-animate">
-    					<span class="date">Jul 2018 – Present</span>
-    					<h2>B.E. in Computer Engineering</h2>
-    					<span class="position">Thapar Institute of Engineering &amp; Technology</span>
-    					<p class="mt-4">
-							• Currently in Junior Year.<br>
-							• CGPA - 8.53
+    					<span class="date">{{education.date}}</span>
+    					<h2>{{education.post}}</h2>
+    					<span class="position">{{education.employer}}</span>
+    					<p class="mt-4">{% set desc=education.desc.split('#') %}
+    						{% for d in desc %}
+    							{{d}}<br>
+    				{% endfor %}
 </p>
-									</div></div>
-				    			<div class="col-md-6">
-					<div class="resume-wrap ftco-animate">
-    					<span class="date">May 2018</span>
-    					<h2>12th (CBSE)</h2>
-    					<span class="position">Cambridge School Noida</span>
-    					<p class="mt-4">
-							• Science (PCM)<br>
-							• Aggregate - 88.6%
-							
-</p>
-									</div></div>
+
+    				</div></div>
+    				{% endfor %}
+				  {% for achievement in achievements %}
 				<div class="col-md-4 text-center d-flex ftco-animate">
 						<a href="#" class="services-1">
 							<span class="icon">
-								<i class="flaticon-trophy"></i>
+								<i class="{{achievement.icon}}"></i>
 							</span>
 							<div class="desc">
-								<h3 class="mb-5">4th Position</h3>
+								<h3 class="mb-5">{{achievement.position}}</h3>
 							</div>
 							<span class="position">
-							HackOwasp 2020
+							{{achievement.organization}}
 							</span>
 						</a>
 					</div>
-					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-trophy"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">4th Position</h3>
-							</div>
-							<span class="position">
-							Startup Punjab Hackathon 2019
-							</span>
-						</a>
-					</div>
-					<div class="col-md-4 text-center d-flex ftco-animate">
-						<a href="#" class="services-1">
-							<span class="icon">
-								<i class="flaticon-quality"></i>
-							</span>
-							<div class="desc">
-								<h3 class="mb-5">Special Mention</h3>
-							</div>
-							<span class="position">
-							Makeathon 2019
-							</span>
-						</a>
-					</div>
-				</div>
+				{% endfor %}					
     	</div>
     </section>
 
@@ -314,183 +271,20 @@
           </div>
         </div>
 				<div class="row">
+					{% for skill in skills %}
 					<div class="col-md-3 animate-box">
 						<div class="progress-wrap ftco-animate">
-							<h3>C++</h3>
+							<h3>{{skill.skill}}</h3>
 							<div class="progress">
-							 	<div class="progress-bar color-1" role="progressbar" aria-valuenow="95"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:95%">
-							    <span>95%</span>
-							  	</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 animate-box">
-						<div class="progress-wrap ftco-animate">
-							<h3>PHP</h3>
-							<div class="progress">
-							 	<div class="progress-bar color-2" role="progressbar" aria-valuenow="85"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:85%">
-							    <span>85%</span>
-							  	</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 animate-box">
-						<div class="progress-wrap ftco-animate">
-							<h3>HTML</h3>
-							<div class="progress">
-							 	<div class="progress-bar color-3" role="progressbar" aria-valuenow="90"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:90%">
-							    <span>90%</span>
-							  	</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 animate-box">
-						<div class="progress-wrap ftco-animate">
-							<h3>CSS3</h3>
-							<div class="progress">
-							 	<div class="progress-bar color-4" role="progressbar" aria-valuenow="80"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:80%">
-							    <span>80%</span>
-							  	</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 animate-box">
-						<div class="progress-wrap ftco-animate">
-							<h3>Flask</h3>
-							<div class="progress">
-							 	<div class="progress-bar color-5" role="progressbar" aria-valuenow="70"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:70%">
-							    <span>70%</span>
-							  	</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 animate-box">
-						<div class="progress-wrap ftco-animate">
-							<h3>Git</h3>
-							<div class="progress">
-							 	<div class="progress-bar color-6" role="progressbar" aria-valuenow="80"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:80%">
-							    <span>80%</span>
-							  	</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 animate-box">
-						<div class="progress-wrap ftco-animate">
-							<h3>JQuery</h3>
-							<div class="progress">
-							 	<div class="progress-bar color-6" role="progressbar" aria-valuenow="80"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:80%">
-							    <span>80%</span>
-							  	</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 animate-box">
-						<div class="progress-wrap ftco-animate">
-							<h3>MySQL</h3>
-							<div class="progress">
-							 	<div class="progress-bar color-6" role="progressbar" aria-valuenow="90"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:90%">
-							    <span>90%</span>
-							  	</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 animate-box">
-						<div class="progress-wrap ftco-animate">
-							<h3>Python</h3>
-							<div class="progress">
-							 	<div class="progress-bar color-6" role="progressbar" aria-valuenow="70"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:70%">
-							    <span>70%</span>
-							  	</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 animate-box">
-						<div class="progress-wrap ftco-animate">
-							<h3>Apache</h3>
-							<div class="progress">
-							 	<div class="progress-bar color-6" role="progressbar" aria-valuenow="65"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:65%">
-							    <span>65%</span>
-							  	</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 animate-box">
-						<div class="progress-wrap ftco-animate">
-							<h3>IoT</h3>
-							<div class="progress">
-							 	<div class="progress-bar color-6" role="progressbar" aria-valuenow="85"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:85%">
-							    <span>85%</span>
-							  	</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 animate-box">
-						<div class="progress-wrap ftco-animate">
-							<h3>ML</h3>
-							<div class="progress">
-							 	<div class="progress-bar color-6" role="progressbar" aria-valuenow="60"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:60%">
-							    <span>60%</span>
-							  	</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 animate-box">
-						<div class="progress-wrap ftco-animate">
-							<h3>Illustrator</h3>
-							<div class="progress">
-							 	<div class="progress-bar color-6" role="progressbar" aria-valuenow="70"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:70%">
-							    <span>70%</span>
-							  	</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 animate-box">
-						<div class="progress-wrap ftco-animate">
-							<h3>Photoshop</h3>
-							<div class="progress">
-							 	<div class="progress-bar color-6" role="progressbar" aria-valuenow="65"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:65%">
-							    <span>65%</span>
-							  	</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 animate-box">
-						<div class="progress-wrap ftco-animate">
-							<h3>Web Scraping</h3>
-							<div class="progress">
-							 	<div class="progress-bar color-6" role="progressbar" aria-valuenow="75"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:75%">
-							    <span>75%</span>
-							  	</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 animate-box">
-						<div class="progress-wrap ftco-animate">
-							<h3>Web Automation</h3>
-							<div class="progress">
-							 	<div class="progress-bar color-6" role="progressbar" aria-valuenow="85"
-							  	aria-valuemin="0" aria-valuemax="100" style="width:85%">
-							    <span>85%</span>
+							 	<div class="progress-bar color-1" role="progressbar" aria-valuenow="{{skill.progress}}"
+							  	aria-valuemin="0" aria-valuemax="100" style="width:{{skill.progress}}%">
+							    <span>{{skill.progress}}%</span>
 							  	</div>
 							</div>
 						</div>
 					</div>
 					
+					{% endfor %}
 					
 				</div>
 			</div>
@@ -508,50 +302,24 @@
         </div>
     		<div class="row">
     			
+  				{% for project in projects %}
+			    			<div class="col-md-{{project.size}}">
+    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({{project.image}});">
+    					<a href="{{project.link}}" target="_blank"><div class="overlay"></div>
+	    				<div class="text text-center p-4">
+	    					<h3>{{project.name}}</h3>
+	    					<span>{{project.tech_stack}}</span>
+							<p style="font-size: small; text-align: left; color: white;">
+								{% set desc=project.desc.split('#') %}
+								{% for d  in desc %}
+								{{d}}<br>
+								{% endfor %}
+							</p>
+	    				</div></a>
+    				</div>
+</div>
+{% endfor %}
   				
-			    			<div class="col-md-4">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(./static/images/project-1.jpg);">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">e-Portal Finance Department</a></h3>
-	    					<span>HTML, CSS, PHP, JS, AJAX</span>
-							<p style="font-size: small; text-align: left; color: white;">• A web portal for online form submissions and administration for a college to make the process of managing finances easier and robust.</p>
-	    				</div>
-    				</div>
-</div>
-  				<div class="col-md-8">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(./static/images/project-5.jpg);">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">AQI-Management-System</a></h3>
-	    					<span>Arduino &amp; Flask</span>
-							<p style="font-size: small; text-align: left; color: white;">•An IoT model for LIVE Air Quality Index (AQI) Data collection, analysation and visualisation. The flask based web portal collected data from arduino and visualized it using charts and maps.<br>
-								• This project was presented in the Smart India Hackathon 2019.</p>
-	    				</div>
-    				</div>
-  				</div>
-<div class="col-md-8">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(./static/images/project-4.jpg);">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">Societo-Culture</a></h3>
-	    					<span>HTML, CSS, PHP, JQuery</span>
-							<p style="font-size: small; text-align: left; color: white;">• Build a PHP based web-portal with MySQL for managing dashboards for all societies/clubs in Thapar University.
-								<br>• It incorporated many features like managing notifications/ publications/finance and a lot more individually for each society.</p>
-	    				</div>
-    				</div>
-</div>
-				<div class="col-md-4">
-    				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(./static/images/project-6.jpg);">
-    					<div class="overlay"></div>
-	    				<div class="text text-center p-4">
-	    					<h3><a href="#">IoT Based Room Automation</a></h3>
-	    					<span>Raspberry Pi &amp; Flask</span>
-							<p style="font-size: small; text-align: left; color: white;">•A Raspberry Pi based project which automates a room and gives control to the user over the internet with the help of a flask web portal. The setup is modular so new sensors and appliances can be added easily.
-</p>
-	    				</div>
-    				</div>
-    			</div>
     			
     		</div>
     	</div>
