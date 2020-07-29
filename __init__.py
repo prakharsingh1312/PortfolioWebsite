@@ -37,7 +37,8 @@ class Project(db.Model):
 	tech_stack=db.Column('tech_stack', db.String(100))
 	image=db.Column('image', db.String(1000))
 	desc=db.Column('description',db.String(1000))
-	link=db.Column('link',db.String(100))
+	github_link=db.Column('github_link',db.String(100))
+	web_link=db.Column('web_link',db.String(100))
 	size=db.Column('size',db.Integer)
 
 db.create_all()

@@ -305,17 +305,19 @@
   				{% for project in projects %}
 			    			<div class="col-md-{{project.size}}">
     				<div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url({{project.image}});">
-    					<a href="{{project.link}}" target="_blank"><div class="overlay"></div>
+    					<div class="overlay"></div>
 	    				<div class="text text-center p-4">
 	    					<h3>{{project.name}}</h3>
-	    					<span>{{project.tech_stack}}</span>
+	    					<span>{{project.tech_stack}}</span><br>
+	    					<a href="{{project.github_link}}" target="_blank"><span class="span2 icon-github"></span></a><a href="{{project.web_link}}" target="_blank"><span class="span2 icon-globe"></span></a>
 							<p style="font-size: small; text-align: left; color: white;">
+								
 								{% set desc=project.desc.split('#') %}
 								{% for d  in desc %}
 								{{d}}<br>
 								{% endfor %}
 							</p>
-	    				</div></a>
+	    				</div>
     				</div>
 </div>
 {% endfor %}
