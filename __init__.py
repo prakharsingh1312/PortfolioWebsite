@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 #Tables
 app.secret_key = 'popatpanda'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://Portfolio:Popat#Panda#1234$@34.67.79.192/Portfolio'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://username:pass@host/Portfolio'
 db=SQLAlchemy(app)
 
 class Event(db.Model):
